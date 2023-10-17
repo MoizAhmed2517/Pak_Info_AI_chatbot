@@ -5,7 +5,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 # from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.embeddings import SentenceTransformerEmbeddings
 from langchain.vectorstores import Pinecone
-from secret_key import pinecone_api_key
+from secret_key import pinecone_api_key, pinecone_env
 
 directory = 'C:\\Users\\HP\\ML Models\\langchain\\embed_chatbot\\data'
 # embeddings = OpenAIEmbeddings(model_name="ada")
@@ -30,8 +30,8 @@ docs = split_docs(documents)
 
 pinecone.init(
     api_key=pinecone_api_key,
-    environment="us-west1-gcp-free"
+    environment=pinecone_env
 )
 
-index_name = 'langchain-chatbot-demo'
+index_name = 'pakichatbot'
 index = Pinecone.from_documents(docs, embeddings, index_name=index_name)

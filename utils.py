@@ -6,7 +6,7 @@ from secret_key import open_ai_key, pinecone_api_key, pinecone_env
 
 openai.api_key = open_ai_key
 pinecone.init(api_key=pinecone_api_key, environment=pinecone_env)
-index = pinecone.Index('langchain-chatbot-demo')
+index = pinecone.Index('pakichatbot')
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
 

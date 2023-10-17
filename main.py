@@ -10,7 +10,7 @@ import os
 
 os.environ['OPENAI_API_KEY'] = open_ai_key
 
-st.title("Langchain Chatbot")
+st.title("Pak Talks")
 
 if 'responses' not in st.session_state:
     st.session_state['responses'] = ["How can I assist you?"]
@@ -41,8 +41,8 @@ with text_container:
         with st.spinner("typing..."):
             conversation_string = get_conversation_string()
             refined_query = query_refiner(conversation_string, query)
-            st.subheader("Refined Query:")
-            st.write(refined_query)
+            # st.subheader("Refined Query:")
+            # st.write(refined_query)
             context = find_match(refined_query)
             response = conversation.predict(input=f"Context:\n {context} \n\n Query:\n{query}")
         st.session_state.requests.append(query)
